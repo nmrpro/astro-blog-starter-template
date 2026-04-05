@@ -43,6 +43,21 @@ const principles = [
 	'Clean execution with visible discipline',
 	'Documentation that survives scrutiny',
 ];
+
+const highlights = [
+	{
+		value: '02',
+		label: 'Focused operating companies',
+	},
+	{
+		value: '01',
+		label: 'Parent structure with a clear standard',
+	},
+	{
+		value: '∞',
+		label: 'Room to build with discipline',
+	},
+];
 ---
 
 <!doctype html>
@@ -56,6 +71,23 @@ const principles = [
 			<section class="hero">
 				<div class="hero-copy">
 					<p class="eyebrow">Pnicta LLC</p>
+					<div class="logo-lockup" aria-label="Pnicta logo">
+						<svg class="logo-mark" viewBox="0 0 160 160" role="img" aria-hidden="true">
+							<defs>
+								<linearGradient id="pnictaGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop offset="0%" stop-color="#13a39d" />
+									<stop offset="100%" stop-color="#0f6d69" />
+								</linearGradient>
+							</defs>
+							<circle cx="80" cy="80" r="60" fill="none" stroke="rgba(18,33,42,0.14)" stroke-width="10" stroke-linecap="square" stroke-dasharray="300 95" transform="rotate(-28 80 80)" />
+							<path d="M96 42c-18 0-31 10-31 23 0 13 10 18 24 22 15 4 24 8 24 18 0 12-12 21-30 21-14 0-28-5-39-14" fill="none" stroke="url(#pnictaGlow)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+							<circle cx="80" cy="80" r="71" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1.5" />
+						</svg>
+						<div>
+							<p class="logo-word">Pnicta</p>
+							<p class="logo-subtitle">Structured companies for technical work that holds up.</p>
+						</div>
+					</div>
 					<h1>Technical companies built to do the work properly.</h1>
 					<p class="lead">
 						Pnicta is the parent company of the Antimony businesses: focused ventures built around
@@ -64,24 +96,41 @@ const principles = [
 					</p>
 					<div class="hero-actions">
 						<a href="#companies" class="button button-primary">Explore the companies</a>
-						<a href="#capabilities" class="button button-secondary">See what defines the work</a>
+						<a href="#vision" class="button button-secondary">See the operating philosophy</a>
 					</div>
 				</div>
 				<div class="hero-panel">
-					<div class="hero-grid">
-						<div class="metric-card">
+					<div class="hero-grid hero-grid-top">
+						<div class="metric-card metric-card-tall">
 							<span class="metric-label">Focus</span>
 							<strong>Systems, analysis, execution</strong>
+							<p>Built to organize ambitious technical work under one disciplined structure.</p>
 						</div>
-						<div class="metric-card">
-							<span class="metric-label">Approach</span>
-							<strong>Measured, clean, defensible</strong>
+						<div class="metric-card orbital-card">
+							<div class="orbital-shell">
+								<div class="orbital-ring orbital-ring-1"></div>
+								<div class="orbital-ring orbital-ring-2"></div>
+								<div class="orbital-core">Sb</div>
+							</div>
+							<p>Elemental logic, engineered execution, and companies with clear scope.</p>
 						</div>
 						<div class="metric-card metric-card-wide">
 							<span class="metric-label">Standard</span>
 							<strong>Competence without spectacle</strong>
+							<p>Methodical work, visible discipline, and outcomes that do not need excuses.</p>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<section class="section highlights-section">
+				<div class="highlight-band">
+					{highlights.map((item) => (
+						<div class="highlight-item">
+							<div class="highlight-value">{item.value}</div>
+							<div class="highlight-label">{item.label}</div>
+						</div>
+					))}
 				</div>
 			</section>
 
@@ -113,6 +162,27 @@ const principles = [
 							<p>{company.description}</p>
 						</article>
 					))}
+				</div>
+			</section>
+
+			<section id="vision" class="section vision-section">
+				<div class="vision-panel">
+					<div class="vision-copy">
+						<p class="eyebrow">Operating philosophy</p>
+						<h2>The goal is not to look technical. The goal is to actually be good.</h2>
+						<p>
+							Pnicta exists to give technically minded companies a coherent structure and a visible
+							standard. The Antimony businesses are meant to feel sharp, measured, and credible from
+							first impression through finished work.
+						</p>
+					</div>
+					<div class="vision-art" aria-hidden="true">
+						<div class="vision-gridline"></div>
+						<div class="vision-gridline vision-gridline-alt"></div>
+						<div class="vision-block vision-block-a"></div>
+						<div class="vision-block vision-block-b"></div>
+						<div class="vision-block vision-block-c"></div>
+					</div>
 				</div>
 			</section>
 
@@ -168,7 +238,7 @@ const principles = [
 
 	.hero {
 		display: grid;
-		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.95fr);
+		grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.95fr);
 		gap: 1.5rem;
 		align-items: stretch;
 	}
@@ -177,7 +247,9 @@ const principles = [
 	.hero-panel,
 	.info-card,
 	.company-card,
-	.split-card {
+	.split-card,
+	.vision-panel,
+	.highlight-band {
 		border: 1px solid var(--pn-line);
 		border-radius: 28px;
 		box-shadow: var(--pn-shadow);
@@ -187,7 +259,9 @@ const principles = [
 	.hero-copy,
 	.hero-panel,
 	.info-card,
-	.split-card {
+	.split-card,
+	.vision-panel,
+	.highlight-band {
 		background: var(--pn-panel);
 	}
 
@@ -195,10 +269,47 @@ const principles = [
 		padding: clamp(2rem, 4vw, 4rem);
 	}
 
+	.logo-lockup {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.35rem;
+	}
+
+	.logo-mark {
+		width: 86px;
+		height: 86px;
+		flex: 0 0 auto;
+		filter: drop-shadow(0 10px 24px rgba(15, 109, 105, 0.18));
+	}
+
+	.logo-word {
+		font-size: clamp(1.7rem, 3vw, 2.4rem);
+		font-weight: 800;
+		letter-spacing: -0.06em;
+		margin-bottom: 0.15rem;
+	}
+
+	.logo-subtitle {
+		color: var(--pn-muted);
+		max-width: 26rem;
+		margin-bottom: 0;
+	}
+
 	.hero-panel {
 		padding: 1.25rem;
 		display: flex;
 		align-items: stretch;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero-panel::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, rgba(15, 109, 105, 0.08), transparent 45%, rgba(16, 32, 40, 0.05));
+		pointer-events: none;
 	}
 
 	.hero-grid {
@@ -206,6 +317,8 @@ const principles = [
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1rem;
 		width: 100%;
+		position: relative;
+		z-index: 1;
 	}
 
 	.metric-card {
@@ -216,12 +329,92 @@ const principles = [
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		min-height: 160px;
+		min-height: 170px;
+	}
+
+	.metric-card p,
+	.orbital-card p,
+	.highlight-label {
+		color: var(--pn-muted);
+		line-height: 1.65;
+		margin-bottom: 0;
+	}
+
+	.metric-card-tall {
+		min-height: 220px;
 	}
 
 	.metric-card-wide {
 		grid-column: 1 / -1;
 		min-height: 140px;
+	}
+
+	.orbital-card {
+		align-items: center;
+		text-align: center;
+		gap: 1rem;
+	}
+
+	.orbital-shell {
+		position: relative;
+		width: 150px;
+		height: 150px;
+		display: grid;
+		place-items: center;
+	}
+
+	.orbital-ring {
+		position: absolute;
+		inset: 0;
+		border-radius: 999px;
+		border: 1.5px solid rgba(15, 109, 105, 0.18);
+	}
+
+	.orbital-ring-1 {
+		transform: rotate(22deg) scale(1, 0.72);
+	}
+
+	.orbital-ring-2 {
+		transform: rotate(-28deg) scale(0.78, 1);
+	}
+
+	.orbital-core {
+		width: 68px;
+		height: 68px;
+		border-radius: 22px;
+		background: linear-gradient(135deg, #12303c, #0f6d69);
+		color: white;
+		display: grid;
+		place-items: center;
+		font-size: 1.35rem;
+		font-weight: 800;
+		letter-spacing: -0.04em;
+		box-shadow: 0 16px 34px rgba(15, 109, 105, 0.24);
+	}
+
+	.highlights-section {
+		margin-top: 1.2rem;
+	}
+
+	.highlight-band {
+		padding: 1rem;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.highlight-item {
+		padding: 1rem 1.1rem;
+		border-radius: 22px;
+		background: var(--pn-panel-strong);
+		border: 1px solid var(--pn-line);
+	}
+
+	.highlight-value {
+		font-size: clamp(1.8rem, 4vw, 2.8rem);
+		font-weight: 800;
+		letter-spacing: -0.06em;
+		margin-bottom: 0.2rem;
 	}
 
 	.metric-label,
@@ -310,7 +503,8 @@ const principles = [
 	}
 
 	.section-heading h2,
-	.split-card h2 {
+	.split-card h2,
+	.vision-copy h2 {
 		font-size: clamp(1.75rem, 3vw, 2.8rem);
 		line-height: 1.02;
 		letter-spacing: -0.05em;
@@ -339,7 +533,8 @@ const principles = [
 	.info-card p,
 	.company-card p,
 	.split-card p,
-	.split-card li {
+	.split-card li,
+	.vision-copy p {
 		color: var(--pn-muted);
 		line-height: 1.75;
 	}
@@ -372,6 +567,65 @@ const principles = [
 		color: #8ad4d0;
 	}
 
+	.vision-panel {
+		padding: 0;
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+		background: linear-gradient(135deg, rgba(255,255,255,0.86), rgba(255,255,255,0.74));
+	}
+
+	.vision-copy {
+		padding: 2rem;
+	}
+
+	.vision-art {
+		position: relative;
+		min-height: 100%;
+		background: linear-gradient(180deg, rgba(16,32,40,0.98), rgba(11,25,33,1));
+		overflow: hidden;
+	}
+
+	.vision-gridline {
+		position: absolute;
+		inset: 12% 12%;
+		border: 1px solid rgba(138, 212, 208, 0.14);
+	}
+
+	.vision-gridline-alt {
+		inset: 24% 24%;
+	}
+
+	.vision-block {
+		position: absolute;
+		border-radius: 26px;
+		background: linear-gradient(135deg, rgba(19,163,157,0.92), rgba(15,109,105,0.82));
+		box-shadow: 0 18px 50px rgba(6, 16, 22, 0.28);
+	}
+
+	.vision-block-a {
+		width: 36%;
+		height: 22%;
+		top: 16%;
+		left: 14%;
+	}
+
+	.vision-block-b {
+		width: 46%;
+		height: 16%;
+		top: 46%;
+		left: 28%;
+		background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(138,212,208,0.18));
+		border: 1px solid rgba(255,255,255,0.08);
+	}
+
+	.vision-block-c {
+		width: 28%;
+		height: 28%;
+		top: 58%;
+		left: 14%;
+	}
+
 	.split-section {
 		display: grid;
 		grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -401,12 +655,18 @@ const principles = [
 		.hero,
 		.split-section,
 		.card-grid,
-		.company-grid {
+		.company-grid,
+		.vision-panel,
+		.highlight-band {
 			grid-template-columns: 1fr;
 		}
 
 		.hero-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.metric-card-wide {
+			grid-column: auto;
 		}
 	}
 
@@ -419,12 +679,23 @@ const principles = [
 			font-size: clamp(2.4rem, 13vw, 4rem);
 		}
 
+		.logo-lockup {
+			align-items: flex-start;
+		}
+
+		.logo-mark {
+			width: 72px;
+			height: 72px;
+		}
+
 		.hero-copy,
 		.hero-panel,
 		.info-card,
 		.company-card,
 		.split-card,
-		.section-dark {
+		.section-dark,
+		.vision-panel,
+		.highlight-band {
 			border-radius: 24px;
 		}
 	}
