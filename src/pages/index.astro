@@ -3,6 +3,46 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const capabilities = [
+	{
+		title: 'Analytical Systems',
+		description:
+			'Antimony companies design technical workflows, data structures, and operational systems that hold up under real use, not just in slide decks.',
+	},
+	{
+		title: 'Engineered Execution',
+		description:
+			'Projects are approached with measurement, verification, and disciplined judgment. Code minimums are the floor, not the finish line.',
+	},
+	{
+		title: 'Practical Rigor',
+		description:
+			'Results are meant to be defensible, maintainable, and visually clean. The standard is not noise or theater. It is work that stands on its own.',
+	},
+];
+
+const companies = [
+	{
+		name: 'Antimony Labs',
+		label: 'Technical Infrastructure',
+		description:
+			'Analytical systems, workflow design, process architecture, and technically literate problem solving for environments that demand rigor.',
+	},
+	{
+		name: 'Antimony Home Services',
+		label: 'Residential Systems Work',
+		description:
+			'Residential mechanical, electrical, and maintenance work executed with an engineering mindset, strong standards, and zero appetite for shortcuts.',
+	},
+];
+
+const principles = [
+	'Verification before assumption',
+	'Systems over improvisation',
+	'Clean execution with visible discipline',
+	'Documentation that survives scrutiny',
+];
 ---
 
 <!doctype html>
@@ -13,38 +53,379 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<div class="hero-copy">
+					<p class="eyebrow">Pnicta LLC</p>
+					<h1>Technical companies built to do the work properly.</h1>
+					<p class="lead">
+						Pnicta is the parent company of the Antimony businesses: focused ventures built around
+						systems thinking, measured execution, and a preference for standards that exceed the
+						bare minimum.
+					</p>
+					<div class="hero-actions">
+						<a href="#companies" class="button button-primary">Explore the companies</a>
+						<a href="#capabilities" class="button button-secondary">See what defines the work</a>
+					</div>
+				</div>
+				<div class="hero-panel">
+					<div class="hero-grid">
+						<div class="metric-card">
+							<span class="metric-label">Focus</span>
+							<strong>Systems, analysis, execution</strong>
+						</div>
+						<div class="metric-card">
+							<span class="metric-label">Approach</span>
+							<strong>Measured, clean, defensible</strong>
+						</div>
+						<div class="metric-card metric-card-wide">
+							<span class="metric-label">Standard</span>
+							<strong>Competence without spectacle</strong>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="capabilities" class="section">
+				<div class="section-heading">
+					<p class="eyebrow">Capabilities</p>
+					<h2>Built to showcase what the Antimony companies are good at.</h2>
+				</div>
+				<div class="card-grid">
+					{capabilities.map((item) => (
+						<article class="info-card">
+							<h3>{item.title}</h3>
+							<p>{item.description}</p>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section id="companies" class="section section-dark">
+				<div class="section-heading section-heading-dark">
+					<p class="eyebrow">Companies</p>
+					<h2>Two focused companies. One disciplined standard.</h2>
+				</div>
+				<div class="company-grid">
+					{companies.map((company) => (
+						<article class="company-card">
+							<p class="company-label">{company.label}</p>
+							<h3>{company.name}</h3>
+							<p>{company.description}</p>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="section split-section">
+				<div class="split-card statement-card">
+					<p class="eyebrow">Why it works</p>
+					<h2>Deliberate structure produces better outcomes.</h2>
+					<p>
+						The Antimony companies are meant to be practical, technically literate, and visibly
+						well-run. The goal is not branding theater. It is to make good judgment, good systems,
+						and good execution feel obvious.
+					</p>
+				</div>
+				<div class="split-card principles-card">
+					<p class="eyebrow">Operating principles</p>
+					<ul>
+						{principles.map((principle) => <li>{principle}</li>)}
+					</ul>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	:global(:root) {
+		--pn-bg: #f3f6f8;
+		--pn-bg-strong: #102028;
+		--pn-text: #16212a;
+		--pn-muted: #56646f;
+		--pn-line: rgba(22, 33, 42, 0.12);
+		--pn-panel: rgba(255, 255, 255, 0.8);
+		--pn-panel-strong: rgba(255, 255, 255, 0.92);
+		--pn-accent: #0f6d69;
+		--pn-accent-soft: rgba(15, 109, 105, 0.12);
+		--pn-shadow: 0 24px 60px rgba(14, 24, 32, 0.1);
+	}
+
+	:global(body) {
+		background:
+			radial-gradient(circle at top left, rgba(15, 109, 105, 0.1), transparent 30%),
+			radial-gradient(circle at bottom right, rgba(16, 32, 40, 0.08), transparent 24%),
+			linear-gradient(180deg, #f8fafb 0%, var(--pn-bg) 100%);
+		color: var(--pn-text);
+	}
+
+	main {
+		width: min(1180px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 3.5rem 0 5rem;
+	}
+
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.95fr);
+		gap: 1.5rem;
+		align-items: stretch;
+	}
+
+	.hero-copy,
+	.hero-panel,
+	.info-card,
+	.company-card,
+	.split-card {
+		border: 1px solid var(--pn-line);
+		border-radius: 28px;
+		box-shadow: var(--pn-shadow);
+		backdrop-filter: blur(16px);
+	}
+
+	.hero-copy,
+	.hero-panel,
+	.info-card,
+	.split-card {
+		background: var(--pn-panel);
+	}
+
+	.hero-copy {
+		padding: clamp(2rem, 4vw, 4rem);
+	}
+
+	.hero-panel {
+		padding: 1.25rem;
+		display: flex;
+		align-items: stretch;
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		width: 100%;
+	}
+
+	.metric-card {
+		background: var(--pn-panel-strong);
+		border: 1px solid var(--pn-line);
+		border-radius: 22px;
+		padding: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 160px;
+	}
+
+	.metric-card-wide {
+		grid-column: 1 / -1;
+		min-height: 140px;
+	}
+
+	.metric-label,
+	.eyebrow,
+	.company-label {
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-size: 0.76rem;
+		font-weight: 700;
+	}
+
+	.metric-label,
+	.company-label {
+		color: var(--pn-accent);
+	}
+
+	.eyebrow {
+		color: var(--pn-accent);
+		margin: 0 0 0.85rem;
+	}
+
+	h1,
+	h2,
+	h3,
+	p {
+		margin-top: 0;
+	}
+
+	h1 {
+		font-size: clamp(3rem, 6vw, 5.9rem);
+		line-height: 0.94;
+		letter-spacing: -0.06em;
+		max-width: 12ch;
+		margin-bottom: 1rem;
+	}
+
+	.lead {
+		font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+		line-height: 1.8;
+		max-width: 40rem;
+		color: var(--pn-muted);
+		margin-bottom: 0;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.9rem;
+		margin-top: 2rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 50px;
+		padding: 0 1.1rem;
+		border-radius: 999px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: transform 180ms ease, opacity 180ms ease;
+	}
+
+	.button:hover {
+		transform: translateY(-1px);
+	}
+
+	.button-primary {
+		background: var(--pn-text);
+		color: white;
+	}
+
+	.button-secondary {
+		background: var(--pn-panel-strong);
+		color: var(--pn-text);
+		border: 1px solid var(--pn-line);
+	}
+
+	.section {
+		margin-top: 1.5rem;
+	}
+
+	.section-heading {
+		max-width: 46rem;
+		margin-bottom: 1.2rem;
+	}
+
+	.section-heading h2,
+	.split-card h2 {
+		font-size: clamp(1.75rem, 3vw, 2.8rem);
+		line-height: 1.02;
+		letter-spacing: -0.05em;
+		margin-bottom: 0;
+	}
+
+	.card-grid,
+	.company-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.2rem;
+	}
+
+	.info-card,
+	.company-card {
+		padding: 1.5rem;
+	}
+
+	.info-card h3,
+	.company-card h3 {
+		font-size: 1.25rem;
+		letter-spacing: -0.03em;
+		margin-bottom: 0.65rem;
+	}
+
+	.info-card p,
+	.company-card p,
+	.split-card p,
+	.split-card li {
+		color: var(--pn-muted);
+		line-height: 1.75;
+	}
+
+	.section-dark {
+		background: linear-gradient(180deg, rgba(16, 32, 40, 0.97) 0%, rgba(11, 25, 33, 0.98) 100%);
+		border-radius: 32px;
+		padding: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		box-shadow: var(--pn-shadow);
+	}
+
+	.section-heading-dark .eyebrow,
+	.section-heading-dark h2,
+	.section-dark .company-card h3 {
+		color: white;
+	}
+
+	.section-dark .company-card {
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: none;
+	}
+
+	.section-dark .company-card p {
+		color: rgba(255, 255, 255, 0.74);
+	}
+
+	.section-dark .company-label {
+		color: #8ad4d0;
+	}
+
+	.split-section {
+		display: grid;
+		grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+		gap: 1.2rem;
+	}
+
+	.split-card {
+		padding: 1.7rem;
+	}
+
+	.principles-card ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 0.85rem;
+	}
+
+	.principles-card li {
+		padding: 0.95rem 1rem;
+		border-radius: 18px;
+		background: var(--pn-panel-strong);
+		border: 1px solid var(--pn-line);
+	}
+
+	@media (max-width: 980px) {
+		.hero,
+		.split-section,
+		.card-grid,
+		.company-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 720px) {
+		main {
+			padding-top: 2rem;
+		}
+
+		h1 {
+			font-size: clamp(2.4rem, 13vw, 4rem);
+		}
+
+		.hero-copy,
+		.hero-panel,
+		.info-card,
+		.company-card,
+		.split-card,
+		.section-dark {
+			border-radius: 24px;
+		}
+	}
+</style>
